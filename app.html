@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beach Buddy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="BeachBuddy" >
+        </div>
+        <nav>
+                <ul class = "navbar-nav">
+                    <li class = "nav-item">
+                        <a href = "app.html" class = "nav-link">home</a>
+                    </li>
+                    <li class = "nav-item">
+                        <a href = "explore.html" class = "nav-link">explore</a>
+                    </li>
+                    <li class = "nav-item">
+                        <a href = "weather.html" class = "nav-link">weather</a>
+                    </li>
+                    <li class = "nav-item">
+                        <a href = "safety.html" class = "nav-link">safety</a>
+                    </li>
+                    
+                    <li class = "nav-item">
+                        <a href = "contact.html" class = "nav-link">contact us</a>
+                    </li>
+                </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Stay Safe and Enjoy the Best Beaches in India</h2>
+        <p>Check real-time beach conditions and plan your trip wisely</p>
+        <button onclick="getLocation()">Find Beaches Near You</button>
+        
+        <script src="{{ url_for('static', filename='js/location.js') }}"></script>
+        
+    </section>
+
+    <section class="beach-locations">
+        <h2>Beach Locations</h2>
+        <body>
+            <header>
+                <h1>Stay Safe and Enjoy the Best Beaches in India</h1>
+            </header>
+        
+        </body>
+        
+<section>
+    <h1>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31809983.02010438!2d61.12272324962567!3d13.284530605673591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sbeaches%20in%20india!5e0!3m2!1sen!2sin!4v1727260932895!5m2!1sen!2sin" 
+            width="50%" 
+            height="600px" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </h1>
+</section>
+
+    <section class="beach-card-container">
+        <div class="beach-card">
+            <h3>Goa</h3>
+            <p>Current Status: <span class="status-safe">Suitable</span></p>
+        </div>
+        <div class="beach-card">
+            <h3>Chennai</h3>
+            <p>Current Status: <span class="status-unsafe">Not Suitable</span></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BeachBuddy. All rights reserved.</p>
+        <div class = "footer-links">
+            <ul class = "flex">
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html
