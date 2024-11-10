@@ -6,552 +6,179 @@
     <title>Explore India's Beautiful Beaches</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        
-        /* General Styles */
+        /* Flexbox setup on the body for sticky footer */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #006994;
+            line-height: 1.6;
             margin: 0;
-            padding: 10px;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
             background-color: #006994;
             color: white;
-            text-align: center;
-            padding: 50px 20px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        header h1 {
-            font-size: 28px;
+        header img {
+            width: 100px;
+        }
+
+        nav {
+            margin-top: 0;
+        }
+
+        .navbar-nav {
+            list-style-type: none;
+            padding: 0;
             margin: 0;
+            display: flex;
+            justify-content: flex-end;
         }
 
-        header p {
-            font-size: 20px;
-            margin-top: 10px;
+        .nav-item {
+            margin: 0 15px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #f0f0f0;
+        }
+
+        /* Main content should grow to push footer down */
+        main {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            flex-grow: 1; /* This makes main take up available space */
         }
 
         .locations {
-            padding: 20px;
             text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
         }
 
         .locations h2 {
-            font-size: 16px;
+            color: #006994;
+            font-size: 24px;
             margin-bottom: 20px;
         }
 
         .locations ul {
             list-style-type: none;
             padding: 0;
+            font-size: 18px;
         }
 
-        .locations ul li {
-            display: inline-block;
-            margin: 10px;
+        .locations li {
+            margin: 10px 0;
         }
 
-        .locations ul li a {
+        .locations a {
             text-decoration: none;
             color: #006994;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            border: 2px solid #006994;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
         }
 
-        .locations ul li a:hover {
-            background-color: #006994;
-            color: white;
+        .locations a:hover {
+            color: #004d73;
+            text-decoration: underline;
         }
 
-        /* Beach Info Styling */
-        .beach-info {
-            padding: 20px;
-            background-color: white;
-            margin: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .beach-info h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #006994;
-        }
-
-        .beach {
-            margin-bottom: 30px;
-        }
-
-        .beach h3 {
-            font-size: 14px;
-            color: #006994;
-        }
-
-        .beach p {
-            font-size: 14px;
-            margin: 5px 0;
-        }
-
-        .material-icons {
-            vertical-align: middle;
-            margin-right: 10px;
-            color: #006994;
-        }
-
-        /* Footer Styling */
         footer {
+            text-align: center;
+            padding: 20px;
             background-color: #006994;
             color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            .navbar-nav {
+                flex-direction: column;
+            }
+
+            .nav-item {
+                margin-bottom: 10px;
+            }
+
+            .locations {
+                padding: 15px;
+                margin: 10px;
+            }
         }
     </style>
 </head>
 <body>
-
     <header>
-        <img src="logo.png" alt="BeachBuddy" class="logo"> <!-- Logo image -->
+        <a href="index.html">
+            <img src="logo.jpg" alt="BeachBuddy" class="logo">
+        </a>
         <nav>
             <ul class="navbar-nav">
-                <li class="nav-item"><a href="app.html" class="nav-link">explore</a></li>
-                <li class="nav-item"><a href="weather.html" class="nav-link">weather</a></li>
-                <li class="nav-item"><a href="safety.html" class="nav-link">safety</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">contact us</a></li>
+                <li class="nav-item">
+                    <a href="app.html" class="nav-link">home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="app.html" class="nav-link">explore</a>
+                </li>
+                <li class="nav-item">
+                    <a href="weather.html" class="nav-link">weather</a>
+                </li>
+                <li class="nav-item">
+                    <a href="safety.html" class="nav-link">safety</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">contact us</a>
+                </li>
             </ul>
         </nav>
     </header>
-    
-    <style>
-        /* CSS for aligning elements in a row */
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #007EA7; /* Adjust to match the color in your image */
-            padding: 10px;
-        }
-        
-        .logo {
-            height: 40px; /* Adjust logo size if needed */
-        }
-        
-        .navbar-nav {
-            display: flex;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .nav-item {
-            margin-left: 20px;
-        }
-        
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .nav-link:hover {
-            text-decoration: underline;
-        }
-    </style>
-    </header>
 
-    <header>
-        <h1>Explore with Beach Buddy</h1>
-        <p>Discover India's Best Beaches – From Sun-soaked Shores to Thrilling Water Sports, Hidden Highlights, and the Perfect Time to Dive In!</p>
-    </header>
+    <main>
+        <div class="locations">
+            <h2>Select a Location:</h2>
+            <ul>
+                <li><a href="explorepage/goa.html">Goa</a></li>
+                <li><a href="explorepage/kerala.html">Kerala</a></li>
+                <li><a href="explorepage/tamil-nadu.html">Tamil Nadu</a></li>
+                <li><a href="explorepage/andhra-pradesh.html">Andhra Pradesh</a></li>
+                <li><a href="explorepage/odisha.html">Odisha</a></li>
+                <li><a href="explorepage/maharashtra.html">Maharashtra</a></li>
+                <li><a href="explorepage/gujarat.html">Gujarat</a></li>
+                <li><a href="explorepage/west-bengal.html">West Bengal</a></li>
+                <li><a href="explorepage/andaman-nicobar.html">Andaman and Nicobar Islands</a></li>
+                <li><a href="explorepage/lakshadweep.html">Lakshadweep</a></li>
+            </ul>
+        </div>
+    </main>
 
-    <div class="locations">
-        <h2>Select a Location:</h2>
-        <ul>
-            <li><a href="#goa">Goa</a></li>
-            <li><a href="#kerala">Kerala</a></li>
-            <li><a href="#tamil-nadu">Tamil Nadu</a></li>
-            <li><a href="#andhra-pradesh">Andhra Pradesh</a></li>
-            <li><a href="#odisha">Odisha</a></li>
-            <li><a href="#maharashtra">Maharashtra</a></li>
-            <li><a href="#gujarat">Gujarat</a></li>
-            <li><a href="#west-bengal">West Bengal</a></li>
-            <li><a href="#andaman">Andaman and Nicobar Islands</a></li>
-            <li><a href="#lakshadweep">Lakshadweep</a></li>
-        </ul>
-    </div>
-
-    <!-- Goa Beaches -->
-    <div class="beach-info" id="goa">
-        <h2>Goa</h2>
-        <div class="beach">
-            <h3>Baga Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Nightlife, beach shacks, relaxation</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Parasailing, jet-skiing</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Famous for vibrant nightlife</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for beach parties and water sports</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-        <div class="beach">
-            <h3>Calangute Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Swimming, family outings</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Windsurfing, kayaking</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Known as the "Queen of Beaches"</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Great for family holidays</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-        <div class="beach">
-            <h3>Anjuna Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Flea markets, parties, relaxation</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Jet-skiing, parasailing</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Famous for flea markets and vibrant parties</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> A hotspot for backpackers and hippies</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-        <div class="beach">
-            <h3>Palolem Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Kayaking, relaxation, beach walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Kayaking, boat rides</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Serene crescent-shaped beach</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its calm and peaceful environment</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-    </div>
-
-    <!-- Kerala Beaches -->
-    <div class="beach-info" id="kerala">
-        <h2>Kerala</h2>
-        <div class="beach">
-            <h3>Kovalam Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Beach walks, relaxation</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Surfing, kayaking</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Famous for its lighthouse and Ayurvedic centers</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> A top destination for wellness and Ayurveda</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> September to March</p>
-        </div>
-        <div class="beach">
-            <h3>Varkala Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Meditation, beach walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Surfing</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Stunning cliff views, perfect for relaxation</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its spiritual atmosphere</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Alappuzha Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Houseboat cruises, fishing, beach walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Canoeing, swimming</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Known for its houseboats</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Close to the backwaters, great for nature lovers</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to February</p>
-        </div>
-        <div class="beach">
-            <h3>Cherai Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Swimming, beach walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Shallow waters, ideal for swimming</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its tranquil and shallow waters</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-    </div>
-
-    <!-- Tamil Nadu Beaches -->
-    <div class="beach-info" id="tamil-nadu">
-        <h2>Tamil Nadu</h2>
-        <div class="beach">
-            <h3>Marina Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Morning walks, beach sports</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming and cycling</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Longest urban beach in India</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> A cultural hub and popular for walks</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to February</p>
-        </div>
-        <div class="beach">
-            <h3>Mahabalipuram Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Sightseeing, relaxation</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Limited water activities</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> UNESCO heritage sites nearby</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Famous for temples and ancient rock-cut structures</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to February</p>
-        </div>
-        <div class="beach">
-            <h3>Rameswaram Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Relaxation, temple visits</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Crystal-clear waters</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Great for spiritual retreats and relaxing</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Elliot's Beach (Besant Nagar)</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Café visits, family outings</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, cycling</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Youth-centric with cafes</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its peaceful vibe, ideal for families</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-    </div>
-
-    <!-- Andhra Pradesh Beaches -->
-
-    <div class="beach-info" id="andhra-pradesh">
-        <h2>Andhra Pradesh</h2>
-        <div class="beach">
-            <h3>Ramakrishna Beach (Vizag)</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Promenade walks, relaxation</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Famous for its promenade and museums</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for cultural landmarks like museums</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to February</p>
-        </div>
-        <div class="beach">
-            <h3>Rishikonda Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Beach relaxation, swimming</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Windsurfing, jet-skiing, parasailing</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Pristine waters</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its clean waters and adventure activities</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Manginapudi Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Cultural tours, beach walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Black-sand beach with cultural significance</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its local cultural events</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Bheemili Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Cultural tours, beach walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Black-sand beach with cultural significance</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its local cultural events</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-    </div>
-
-    <!-- Odisha Beaches -->
-
-    <div class="beach-info" id="odisha">
-        <h2>Odisha</h2>
-        <div class="beach">
-            <h3>Puri Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Cultural festivals, beach walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, surfing, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Famous for the Puri Rath Yatra</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Famous for the annual Puri Rath Yatra festival</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Chandipur Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Relaxation, photography</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Unique receding waters</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its “vanishing sea” effect</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Gopalpur Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Solitude, turtle watching</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Quiet and serene</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Ideal for turtle watching and peaceful vacations</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Konark Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Spiritual retreats, beach walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, sunbathing</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Close to the Sun Temple</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its spiritual vibes and proximity to Konark Temple</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-    </div>
-
-    <!-- Maharashtra Beaches -->
-
-    <div class="beach-info" id="maharashtra">
-        <h2>Maharashtra</h2>
-        <div class="beach">
-            <h3>Juhu Beach (Mumbai)</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Street food, relaxation, jogging</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, horse riding, jet-skiing</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Iconic urban beach</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its famous street food stalls</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to February</p>
-        </div>
-        <div class="beach">
-            <h3>Aksa Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Relaxation, peaceful walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, picnics</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Calm and secluded</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its peaceful atmosphere, less crowded</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Tarkarli Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Scuba diving, relaxation, nature walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Scuba diving, snorkeling, parasailing</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Clear waters ideal for water sports</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Famous for its clear waters and scuba diving</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Ganpatipule Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Scenic views, relaxation</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, snorkeling, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Scenic beauty, temple town</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its proximity to the Ganpatipule Temple</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-    </div>
-
-    <!-- Gujarat Beaches -->
-
-    <div class="beach-info" id="gujarat">
-        <h2>Gujarat</h2>
-        <div class="beach">
-            <h3>Mandvi Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Camel rides, relaxation</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Clean white-sand beach</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its untouched beauty and camel rides</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Chorwad Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Photography, relaxation</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Rugged landscape</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its scenic views, great for photographers</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Dwarka Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Spiritual visits, beach walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, fishing</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Spiritual atmosphere near Dwarkadhish Temple</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Famous for its proximity to the Dwarkadhish Temple</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Somnath Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Temple visits, beach walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, fishing</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Close to the Somnath Temple</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its spiritual significance and proximity to Somnath Temple</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-    </div>
-
-    <!-- West Bengal Beaches -->
-
-    <div class="beach-info" id="west-bengal">
-        <h2>West Bengal</h2>
-        <div class="beach">
-            <h3>Digha Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Family picnics, sunrise views</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, cycling</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Popular for family outings</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Famous for its calm and peaceful atmosphere</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Mandarmani Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> 	Weekend getaways, beach activities</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Quiet, ideal for relaxation</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for being a quiet getaway spot</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Bakkhali Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Beach walks, relaxation</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Lesser-known, serene</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its tranquil atmosphere and calm waters</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-    </div>
-
-    <!-- Andaman and Nicobar Islands Beaches -->
-
-    <div class="beach-info" id="andaman">
-        <h2>Andaman and Nicobar Islands</h2>
-        <div class="beach">
-            <h3>Radhanagar Beach (Havelock)</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Relaxation, nature walks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Snorkeling, scuba diving, swimming</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Ranked among Asia’s best beaches</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Famous for its pristine environment and clear waters</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-        <div class="beach">
-            <h3>Corbyn’s Cove Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Relaxation, short treks</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Swimming, boating</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Calm waters</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Famous for its tranquil surroundings and clear waters</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-        <div class="beach">
-            <h3>Neil Island Beaches</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Snorkeling, photography</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Snorkeling, swimming</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Quiet and peaceful</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Great for underwater activities and photography</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-        <div class="beach">
-            <h3>Elephant Beach	</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Marine life exploration, relaxation	</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Snorkeling, scuba diving, jet-skiing</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Vibrant marine life</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its underwater activities and marine life</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> November to March</p>
-        </div>
-    </div>
-
-    <!-- Lakshadweep Beaches -->
-    <div class="beach-info" id="lakshadweep">
-        <h2>Lakshadweep</h2>
-        <div class="beach">
-            <h3>Minicoy Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Diving, relaxation</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Scuba diving, snorkeling</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Pristine and untouched</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its untouched coral reefs and clear waters</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Bangaram Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Coral reef exploration, relaxation</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Scuba diving, snorkeling</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Crystal-clear lagoons</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Known for its crystal-clear lagoons and coral reefs</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-        <div class="beach">
-            <h3>Agatti Beach</h3>
-            <p><span class="material-icons">directions_run</span><strong>Recreational Activities:</strong> Marine ecosystem exploration, relaxation	</p>
-            <p><span class="material-icons">surfing</span><strong>Water Sports:</strong> Scuba diving, snorkeling	</p>
-            <p><span class="material-icons">star</span><strong>Highlight:</strong> Vibrant marine ecosystem</p>
-            <p><span class="material-icons">info</span><strong>Interesting Fact:</strong> Famous for its vibrant coral reefs and clear waters</p>
-            <p><span class="material-icons">date_range</span><strong>Best Time to Visit:</strong> October to March</p>
-        </div>
-    </div>
-
-    <!-- Footer -->
     <footer>
-        <p> &copy; 2024 Beach Buddy. All rights reserved.</p>
+        <p>&copy; 2024 Beach Buddy. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
