@@ -1,38 +1,56 @@
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
+    padding: 20px;
 }
 
 h1 {
-    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
 }
 
-#current-alerts {
+.cards-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    gap: 20px;
+    justify-content: center;
 }
 
-.alert-box {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 45%;
-    margin-bottom: 10px;
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    border-left: 5px solid;
 }
 
-.alert-box h3 {
-    margin-top: 0;
+.alert {
+    font-weight: bold;
 }
 
-.alert-box p {
-    margin-bottom: 5px;
+.color {
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.date {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Dynamic color based on alert color */
+.card .color:after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: currentColor;
+    border-radius: 50%;
+    margin-left: 5px;
 }

@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ocean Current Alerts</title>
-    <link rel="stylesheet" href="weather.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BeachBuddy - Explore</title>
+<link rel="stylesheet" href="weather.css?v=1.0">
 </head>
 <body>
-    <div class="container">
-        <h1>Ocean Current Alerts</h1>
-        <section id="current-alerts"></section>
-    </div>
-    <script src="weather.py"></script>
+    <h2>JSON Data</h2>
+    <p id="Data"></p>
+    <script type = "text/javascript">
+        fetch('./weather.json')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function (data) {
+            for(var i=0; i<data.length; i++) {
+                document.getElementById("data").innerHTML +=
+                data[i].id + "->" + data[i].District 
+            }
+        })
+    </script>
 </body>
 </html>
